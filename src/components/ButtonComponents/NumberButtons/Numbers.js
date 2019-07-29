@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import makeID from "../../../makeID";
 import NumberButton from "./NumberButton";
 //import any components needed
@@ -7,12 +7,19 @@ import { numbers } from "../../../data";
 
 const Numbers = props => {
   // STEP 2 - add the imported data to state
-  const [numberState, setNumberState] = useState(numbers);
   return (
     <div className="number-buttons">
       {" "}
       {numbers.map(number => {
-        return <NumberButton num={number} key={makeID(5)} />;
+        number = number !== "." ? parseInt(number) : number;
+        return (
+          <NumberButton
+            num={number}
+            key={makeID(5)}
+            display={props.display}
+            setDisplay={props.setDisplay}
+          />
+        );
       })}{" "}
     </div>
   );

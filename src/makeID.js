@@ -1,5 +1,3 @@
-import React from "react";
-
 const makeID = length => {
   var result = "";
   var characters =
